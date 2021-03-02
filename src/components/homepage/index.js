@@ -41,6 +41,7 @@ export const InputContainer = styled.div`
   justify-content: space-between;
 
   .text-input-div {
+    height: 100%;
     border: 1px solid ${(props) => props.theme.colors.secondary};
     background-color: ${(props) => props.theme.colors.primary};
     padding: 11px 0 11px 15px;
@@ -70,6 +71,7 @@ export const InputContainer = styled.div`
   }
 
   select {
+    height: 100%;
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.primary};
     border: 1px solid ${(props) => props.theme.colors.secondary};
