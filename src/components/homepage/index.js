@@ -52,7 +52,8 @@ export const InputContainer = styled.div`
     background: none;
     border: none;
     color: ${(props) => props.theme.colors.text};
-    padding: 3px 120px 0 10px;
+    width: 250px;
+    padding-left: 10px;
   }
 
   input::placeholder {
@@ -137,14 +138,15 @@ export const CountryContainer = styled.div`
   }
 
   h2 {
-    font-weight: 600;
+    font-weight: 800;
+    font-size: 16px;
   }
   strong {
     font-weight: 600;
   }
   p {
     font-weight: 300;
-    margin: 10px 0;
+    margin: 15px 0;
   }
 
   div {
