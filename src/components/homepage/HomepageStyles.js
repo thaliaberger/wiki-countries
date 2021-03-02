@@ -40,7 +40,7 @@ export const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  div {
+  .text-input-div {
     border: 1px solid ${(props) => props.theme.colors.secondary};
     background-color: ${(props) => props.theme.colors.primary};
     padding: 11px 0 11px 15px;
@@ -64,7 +64,12 @@ export const InputContainer = styled.div`
     outline: none;
   }
 
+  .select-input-div {
+    position: relative;
+  }
+
   select {
+    cursor: pointer;
     background-color: ${(props) => props.theme.colors.primary};
     border: 1px solid ${(props) => props.theme.colors.secondary};
     color: ${(props) => props.theme.colors.text};
@@ -75,6 +80,12 @@ export const InputContainer = styled.div`
     appearance: none;
   }
 
+  .arrow {
+    position: absolute;
+    right: 10px;
+    top: 11px;
+  }
+
   select:focus {
     outline: none;
   }
@@ -83,13 +94,18 @@ export const InputContainer = styled.div`
     flex-direction: column;
     width: 700px;
     select {
-      margin-top: 30px;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .arrow {
+      top: 20px;
     }
   }
   @media screen and (max-width: 720px) {
     width: 90%;
     select {
       margin-top: 10px;
+      width: 100%;
     }
   }
 `;

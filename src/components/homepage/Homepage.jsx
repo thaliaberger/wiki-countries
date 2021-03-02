@@ -81,7 +81,7 @@ function Homepage() {
   return (
     <Container>
       <InputContainer>
-        <div>
+        <div className="text-input-div">
           <IoIosSearch size={20} />
           <input
             type="text"
@@ -89,16 +89,19 @@ function Homepage() {
             placeholder="Search for a country..."
           />
         </div>
-        <select onChange={handleSelect} name="regions" id="regions">
-          <option value="" selected>
-            Filter by Region...
-          </option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
+        <div className="select-input-div">
+          <select onChange={handleSelect} name="regions" id="regions">
+            <option value="" selected>
+              Filter by Region...
+            </option>
+            <option value="Africa">Africa</option>
+            <option value="Americas">Americas</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
+          </select>
+          <HiOutlineChevronDown className="arrow" size={20} />
+        </div>
       </InputContainer>
       <section>
         {allCountries
