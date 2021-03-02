@@ -42,17 +42,13 @@ function CountryDetails(props) {
         setBordersLength(state.borders.length);
       } catch (err) {}
     }
-    if (state.borders) {
+    if (state.borders && borders.length < state.borders.length) {
       for (let country of state.borders) {
         fetchData(country);
       }
     }
     setBorders(borders);
   }, [state]);
-
-  console.log(borders.length);
-  console.log(bordersLength);
-  console.log(bordersLoaded);
 
   //Criar array com os nomes das bordas
 
