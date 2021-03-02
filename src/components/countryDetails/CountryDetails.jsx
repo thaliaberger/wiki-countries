@@ -8,7 +8,7 @@ import { CountryDetailsContainer, CountryDetailsDiv } from "./index";
 
 function CountryDetails(props) {
   const [state, setState] = useState({});
-  const [currentBorder, setCurrentBorder] = useState("");
+  const [currentBorder, setCurrentBorder] = useState({});
   const [borders, setBorders] = useState([]);
   const [bordersLoaded, setBordersLoaded] = useState([]);
   const [bordersLength, setBordersLength] = useState(0);
@@ -37,25 +37,27 @@ function CountryDetails(props) {
         const response = await axios.get(
           `https://restcountries.eu/rest/v2/alpha/${countryCode}`
         );
-        setCurrentBorder(response.data.name);
+        setCurrentBorder(response.data);
+        borders.push(response.data.name);
         setBordersLength(state.borders.length);
       } catch (err) {}
     }
     if (state.borders) {
-      state.borders.forEach((country) => {
+      for (let country of state.borders) {
         fetchData(country);
-      });
+      }
     }
+    setBorders(borders);
   }, [state]);
+
+  console.log(borders.length);
+  console.log(bordersLength);
+  console.log(bordersLoaded);
 
   //Criar array com os nomes das bordas
 
   useEffect(() => {
-    if (currentBorder !== "" && borders.length < bordersLength) {
-      borders.push(currentBorder);
-      setBorders(borders);
-    }
-    if (borders.length === bordersLength) {
+    if (borders.length > 0 && borders.length === bordersLength) {
       setBordersLoaded(borders);
     }
   }, [currentBorder]);
