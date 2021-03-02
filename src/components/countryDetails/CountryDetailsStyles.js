@@ -19,6 +19,10 @@ export const CountryDetailsContainer = styled.section`
     align-items: center;
   }
 
+  .go-back:hover {
+    color: ${(props) => props.theme.colors.hover};
+  }
+
   @media screen and (max-width: 800px) {
     max-width: 80%;
     display: flex;
@@ -41,7 +45,7 @@ export const CountryDetailsDiv = styled.div`
   margin: 40px auto 0 auto;
 
   > div {
-    width: 550px;
+    max-width: 550px;
   }
 
   > div h2 {
@@ -73,6 +77,11 @@ export const CountryDetailsDiv = styled.div`
     padding: 2px 10px;
     margin-left: 5px;
     margin-bottom: 5px;
+  }
+
+  a:hover {
+    color: ${(props) => props.theme.colors.hover};
+    border: 1.5px solid ${(props) => props.theme.colors.hover};
   }
 
   .country-borders-div span {
@@ -121,10 +130,10 @@ export const CountryDetailsDiv = styled.div`
     max-width: 100%;
     > div {
       margin-left: 20px;
-      width: 100%;
+      width: 90%;
     }
     img {
-      width: 100%;
+      max-width: 100%;
     }
   }
 `;

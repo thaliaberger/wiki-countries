@@ -43,7 +43,7 @@ export const InputContainer = styled.div`
   div {
     border: 1px solid ${(props) => props.theme.colors.secondary};
     background-color: ${(props) => props.theme.colors.primary};
-    padding: 10px 0 10px 15px;
+    padding: 11px 0 11px 15px;
     display: flex;
     align-items: center;
   }
@@ -68,8 +68,15 @@ export const InputContainer = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
     border: 1px solid ${(props) => props.theme.colors.secondary};
     color: ${(props) => props.theme.colors.text};
-    padding: 10px 50px 10px 15px;
+    padding: 11px 50px 11px 20px;
     font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  select:focus {
+    outline: none;
   }
 
   @media screen and (max-width: 1000px) {
@@ -95,6 +102,10 @@ export const CountryContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+
+  :hover {
+    background: ${(props) => props.theme.colors.background};
+  }
 
   img {
     width: 100%;

@@ -5,6 +5,7 @@ import axios from "axios";
 import { Container, InputContainer, CountryContainer } from "./HomepageStyles";
 
 import { IoIosSearch } from "react-icons/io";
+import { HiOutlineChevronDown } from "react-icons/hi";
 
 function Homepage() {
   const [allCountries, setAllCountries] = useState([]);

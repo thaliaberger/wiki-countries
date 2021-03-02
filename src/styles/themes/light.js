@@ -6,5 +6,6 @@ export default {
     secondary: "hsl(0, 0%, 83%)",
     text: "hsl(200, 15%, 8%)",
     background: "hsl(0, 0%, 98%)",
+    hover: "hsl(0, 0%, 37%)",
   },
 };
