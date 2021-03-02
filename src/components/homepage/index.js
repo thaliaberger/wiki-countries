@@ -156,6 +156,7 @@ export const CountryContainer = styled.div`
   }
   @media screen and (max-width: 720px) {
     width: 90%;
+    height: 380px;
     img {
       height: 200px;
     }
