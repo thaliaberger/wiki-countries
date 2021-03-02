@@ -73,11 +73,12 @@ export const InputContainer = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
     border: 1px solid ${(props) => props.theme.colors.secondary};
     color: ${(props) => props.theme.colors.text};
-    padding: 11px 50px 11px 20px;
+    padding: 11px 80px 11px 20px;
     font-size: 16px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    border-radius: 0;
   }
 
   .arrow {
@@ -92,7 +93,7 @@ export const InputContainer = styled.div`
 
   @media screen and (max-width: 1000px) {
     flex-direction: column;
-    width: 700px;
+    width: 710px;
     select {
       margin-top: 10px;
       width: 100%;
@@ -102,11 +103,17 @@ export const InputContainer = styled.div`
     }
   }
   @media screen and (max-width: 720px) {
-    width: 90%;
+    width: 95%;
+    align-items: stretch;
+
     select {
       margin-top: 10px;
       width: 100%;
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 90%;
   }
 `;
 

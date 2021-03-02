@@ -4,28 +4,68 @@ import axios from "axios";
 
 import { IoIosArrowRoundBack } from "react-icons/io";
 
-import {
-  CountryDetailsContainer,
-  CountryDetailsDiv,
-} from "./CountryDetailsStyles";
+import { CountryDetailsContainer, CountryDetailsDiv } from "./index";
 
 function CountryDetails(props) {
   const [state, setState] = useState({});
+  const [currentBorder, setCurrentBorder] = useState("");
+  const [borders, setBorders] = useState([]);
+  const [bordersLoaded, setBordersLoaded] = useState([]);
+  const [bordersLength, setBordersLength] = useState(0);
+
+  //Buscar os dados do país
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const id = props.match.params.id;
+        const name = props.match.params.name;
 
         const response = await axios.get(
-          `https://restcountries.eu/rest/v2/alpha/${id}`
+          `https://restcountries.eu/rest/v2/name/${name}?fullText=true`
         );
-
-        setState({ ...response.data });
+        setState({ ...response.data[0] });
       } catch (err) {}
     }
     fetchData();
   }, [props]);
+
+  //Buscar o nome de cada borda
+
+  useEffect(() => {
+    async function fetchData(countryCode) {
+      try {
+        const response = await axios.get(
+          `https://restcountries.eu/rest/v2/alpha/${countryCode}`
+        );
+        setCurrentBorder(response.data.name);
+        setBordersLength(state.borders.length);
+      } catch (err) {}
+    }
+    if (state.borders) {
+      state.borders.forEach((country) => {
+        fetchData(country);
+      });
+    }
+  }, [state]);
+
+  //Criar array com os nomes das bordas
+
+  useEffect(() => {
+    if (currentBorder !== "" && borders.length < bordersLength) {
+      borders.push(currentBorder);
+      setBorders(borders);
+    }
+    if (borders.length === bordersLength) {
+      setBordersLoaded(borders);
+    }
+  }, [currentBorder]);
+
+  //Limpar state das bordas quando clicar em outro país
+
+  function handleClick() {
+    setBorders([]);
+    setBordersLoaded([]);
+  }
 
   return (
     <CountryDetailsContainer>
@@ -51,7 +91,6 @@ function CountryDetails(props) {
                 ) : (
                   <></>
                 )}
-
                 <p>
                   <strong>Region: </strong>
                   {state.region}
@@ -99,12 +138,14 @@ function CountryDetails(props) {
               </div>
             </div>
             <div className="country-borders-div">
-              {state.borders ? (
+              {bordersLoaded ? (
                 <p>
                   <strong>Borders Countries: </strong>
                   <span>
-                    {state.borders.map((item) => (
-                      <Link to={item}>{item}</Link>
+                    {bordersLoaded.slice(0, bordersLength).map((item) => (
+                      <Link onClick={handleClick} to={item}>
+                        {item}
+                      </Link>
                     ))}
                   </span>
                 </p>

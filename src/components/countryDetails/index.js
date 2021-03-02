@@ -41,11 +41,13 @@ export const CountryDetailsContainer = styled.section`
 
 export const CountryDetailsDiv = styled.div`
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   margin: 40px auto 0 auto;
+  height: 500px;
 
   > div {
-    max-width: 550px;
+    width: 500px;
   }
 
   > div h2 {
@@ -66,7 +68,9 @@ export const CountryDetailsDiv = styled.div`
   }
 
   img {
-    max-width: 400px;
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
   }
 
   a {
@@ -75,7 +79,7 @@ export const CountryDetailsDiv = styled.div`
     border: 1.5px solid ${(props) => props.theme.colors.text};
     font-weight: 600;
     padding: 2px 10px;
-    margin-left: 5px;
+    margin-right: 5px;
     margin-bottom: 5px;
   }
 
@@ -120,10 +124,6 @@ export const CountryDetailsDiv = styled.div`
     .country-borders-div span {
       margin: 10px 0 0 0;
     }
-
-    a {
-      margin-left: 0;
-    }
   }
 
   @media screen and (max-width: 720px) {
@@ -133,7 +133,8 @@ export const CountryDetailsDiv = styled.div`
       width: 90%;
     }
     img {
-      max-width: 100%;
+      width: 100%;
+      max-height: 500px;
     }
   }
 `;

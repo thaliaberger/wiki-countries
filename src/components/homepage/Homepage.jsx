@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import { Container, InputContainer, CountryContainer } from "./HomepageStyles";
+import { Container, InputContainer, CountryContainer } from "./index";
 
 import { IoIosSearch } from "react-icons/io";
 import { HiOutlineChevronDown } from "react-icons/hi";
@@ -106,13 +106,14 @@ function Homepage() {
       <section>
         {allCountries
           ? allCountries.map((country) => (
-              <Link key={country.alpha3Code} to={country.alpha3Code}>
+              <Link key={country.alpha3Code} to={country.name}>
                 <CountryContainer>
                   <img src={country.flag} alt="country flag" />
                   <div>
                     <h2>{country.name}</h2>
                     <p>
-                      <strong>Population:</strong> {country.population}
+                      <strong>Population:</strong>{" "}
+                      {country.population.toLocaleString("pt-BR")}
                     </p>
                     <p>
                       <strong>Region:</strong> {country.region}

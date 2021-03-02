@@ -24,7 +24,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route exact path="/:id" component={CountryDetails} />
+          <Route exact path="/:name" component={CountryDetails} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>
