@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container } from "./index";
+import { Container } from "./NavbarStyles";
 
 import { HiOutlineMoon, HiMoon } from "react-icons/hi";
 
