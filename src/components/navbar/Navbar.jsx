@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 
-import { Container } from "./NavbarStyles";
+import { Container } from "./index";
 
 import { HiOutlineMoon, HiMoon } from "react-icons/hi";
 
-function Navbar({ toggleTheme }) {
-  const [darkMode, setDarkMode] = useState(true);
+function Navbar({ toggleTheme, theme }) {
+  const [themeIcon, setThemeIcon] = useState(theme.title);
 
   function handleClick() {
-    setDarkMode(!darkMode);
+    themeIcon === "dark" ? setThemeIcon("light") : setThemeIcon("dark");
     toggleTheme();
   }
+
   return (
     <Container>
       <h1>Where in the world?</h1>
       <div onClick={handleClick}>
-        {darkMode ? <HiMoon size={20} /> : <HiOutlineMoon size={20} />}
+        {themeIcon === "dark" ? (
+          <HiMoon size={20} />
+        ) : (
+          <HiOutlineMoon size={20} />
+        )}
         <p>Dark Mode</p>
       </div>
     </Container>

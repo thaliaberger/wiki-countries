@@ -9,6 +9,7 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 
 function Homepage() {
   const [allCountries, setAllCountries] = useState([]);
+  const [currentCountries, setCurrentCountries] = useState([]);
   const [input, setInput] = useState("");
   const [select, setSelect] = useState("");
 
@@ -20,6 +21,7 @@ function Homepage() {
         );
 
         setAllCountries([...response.data]);
+        setCurrentCountries([...response.data]);
       } catch (err) {}
     }
     fetchData();
@@ -33,16 +35,10 @@ function Homepage() {
             `https://restcountries.eu/rest/v2/name/${input}`
           );
 
-          setAllCountries([...response.data]);
+          setCurrentCountries([...response.data]);
         } catch (err) {}
       } else {
-        try {
-          const response = await axios.get(
-            "https://restcountries.eu/rest/v2/all"
-          );
-
-          setAllCountries([...response.data]);
-        } catch (err) {}
+        setCurrentCountries(allCountries);
       }
     }
     fetchData();
@@ -55,16 +51,10 @@ function Homepage() {
           const response = await axios.get(
             `https://restcountries.eu/rest/v2/region/${select}`
           );
-          setAllCountries([...response.data]);
+          setCurrentCountries([...response.data]);
         } catch (err) {}
       } else {
-        try {
-          const response = await axios.get(
-            "https://restcountries.eu/rest/v2/all"
-          );
-
-          setAllCountries([...response.data]);
-        } catch (err) {}
+        setCurrentCountries(allCountries);
       }
     }
     fetchData();
@@ -104,8 +94,8 @@ function Homepage() {
         </div>
       </InputContainer>
       <section>
-        {allCountries
-          ? allCountries.map((country) => (
+        {currentCountries
+          ? currentCountries.map((country) => (
               <Link key={country.alpha3Code} to={country.name}>
                 <CountryContainer>
                   <img src={country.flag} alt="country flag" />
