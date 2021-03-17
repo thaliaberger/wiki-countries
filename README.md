@@ -1,7 +1,5 @@
 ## Wiki Countries
 
-Front-End challenge Solution.
-
 [DEMO](https://wiki-countries.vercel.app/)
 
 ## Built With
