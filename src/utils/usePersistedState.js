@@ -15,7 +15,6 @@ function usePersistedState(key, initialState) {
     localStorage.setItem(key, JSON.stringify(state));
   }, [key, state]);
 
-  console.log(state);
   return [state, setState];
 }
 

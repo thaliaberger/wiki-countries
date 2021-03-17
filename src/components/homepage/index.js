@@ -44,6 +44,7 @@ export const InputContainer = styled.div`
     height: 100%;
     border: 1px solid ${(props) => props.theme.colors.secondary};
     background-color: ${(props) => props.theme.colors.primary};
+    border-radius: 10px;
     padding: 11px 0 11px 15px;
     display: flex;
     align-items: center;
@@ -75,13 +76,13 @@ export const InputContainer = styled.div`
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.primary};
     border: 1px solid ${(props) => props.theme.colors.secondary};
+    border-radius: 10px;
     color: ${(props) => props.theme.colors.text};
     padding: 11px 80px 11px 20px;
     font-size: 16px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-radius: 0;
   }
 
   .arrow {
@@ -125,6 +126,7 @@ export const CountryContainer = styled.div`
   height: 350px;
   background: ${(props) => props.theme.colors.primary};
   border: 1px solid ${(props) => props.theme.colors.secondary};
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -137,6 +139,7 @@ export const CountryContainer = styled.div`
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
   }
 
   h2 {
@@ -145,6 +148,7 @@ export const CountryContainer = styled.div`
   }
   strong {
     font-weight: 600;
+    opacity: 0.4;
   }
   p {
     font-weight: 300;

@@ -14,7 +14,7 @@ function Navbar({ toggleTheme, theme }) {
 
   return (
     <Container>
-      <h1>Where in the world?</h1>
+      <h1>Wiki Countries</h1>
       <div onClick={handleClick}>
         {themeIcon === "dark" ? (
           <HiMoon size={20} />

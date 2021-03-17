@@ -12,6 +12,7 @@ export const CountryDetailsContainer = styled.section`
 
   strong {
     font-weight: 600;
+    opacity: 0.4;
   }
 
   .go-back {

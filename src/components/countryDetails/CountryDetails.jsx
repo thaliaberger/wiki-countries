@@ -29,7 +29,7 @@ function CountryDetails(props) {
     fetchData();
   }, [props]);
 
-  //Buscar o nome de cada borda
+  //Buscar o nome de cada fronteira
 
   useEffect(() => {
     async function fetchData(countryCode) {
@@ -50,7 +50,7 @@ function CountryDetails(props) {
     setBorders(borders);
   }, [state]);
 
-  //Criar array com os nomes das bordas
+  //Criar array com os nomes das fronteiras
 
   useEffect(() => {
     if (borders.length > 0 && borders.length === bordersLength) {
@@ -58,7 +58,7 @@ function CountryDetails(props) {
     }
   }, [currentBorder]);
 
-  //Limpar state das bordas quando clicar em outro país
+  //Limpar state das fronteiras quando clicar em outro país
 
   function handleClick() {
     setBorders([]);
